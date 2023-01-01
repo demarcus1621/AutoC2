@@ -16,5 +16,9 @@ was developed and tested using Python 3.9.
 Ensure you have the proper packages and libraries.
 `pip install -r requirements.txt`
 
+```bash 
+NOTE: requirements.txt was generated using python -m  pipreqs.pipreqs --encoding utf-8 .
+```
+
 Run the tool.
 `python create_ec2_instance.py -h`
