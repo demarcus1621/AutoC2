@@ -138,10 +138,3 @@ if __name__ == '__main__':
     parser.add_argument('-c','--config',action='store_true',help="Configure AWS instance using the provided ssh key SSH instance")
     parser.add_argument('-f','--framework',dest='c2',choices=["powershell-empire","poshc2"], help="Specifies which C2 framework to install on AWS instance: powershell-empire / poshc2")
     main()
-
-    # generate_keypair()
-    # build_instance()
-    # delete_keypair("us-east-1")
-    # get_instance_status()
-    # delete_instance('i-0ae81973075a67c70')
-    # configure_instance("empire",ip="3.82.174.138")
