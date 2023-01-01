@@ -22,3 +22,24 @@ NOTE: requirements.txt was generated using python -m  pipreqs.pipreqs --encoding
 
 Run the tool.
 `python create_ec2_instance.py -h`
+```bash
+usage: create_ec2_instance.py [-h] [-r REGION] [-i AMI] [-k KEY_NAME] [-n] [-g GROUP_NAME] [-b] [-c]
+                              [-f {powershell-empire,poshc2}]
+
+Creates AWS EC2 instances for on-demand C2 testing.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -r REGION, --region REGION
+                        AWS region for deployment: us-east-1
+  -i AMI, --ami AMI     AMI image id: ami-06fd113e1286dd166
+  -k KEY_NAME, --keyname KEY_NAME
+                        SSH keyname: aws_c2
+  -n, --createkey       Create new AWS ssh keys: False
+  -g GROUP_NAME, --group GROUP_NAME
+                        Specify name for AWS security group: aws_c2
+  -b, --build           Tells the script to build the machine using the other specified parameters
+  -c, --config          Configure AWS instance using the provided ssh key SSH instance
+  -f {powershell-empire,poshc2}, --framework {powershell-empire,poshc2}
+                        Specifies which C2 framework to install on AWS instance: powershell-empire / poshc2
+```
