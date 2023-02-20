@@ -18,7 +18,7 @@ Ensure you have the proper packages and libraries.
 
 Run the tool.
 `python create_ec2_instance.py -h`
-```bash
+```
 usage: create_ec2_instance.py [-h] [-r REGION] [-i AMI] [-k KEY_NAME] [-n] [-g GROUP_NAME] [-b] [-c]
                               [-f {powershell-empire,poshc2}]
 
