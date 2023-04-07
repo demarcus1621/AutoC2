@@ -1,3 +1,4 @@
 .aws
 *.pem
 c2_gen/*
+.vscode
