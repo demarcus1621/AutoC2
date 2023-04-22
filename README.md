@@ -38,4 +38,8 @@ optional arguments:
   -c, --config          Configure AWS instance using the provided ssh key SSH instance
   -f {powershell-empire,poshc2}, --framework {powershell-empire,poshc2}
                         Specifies which C2 framework to install on AWS instance: powershell-empire / poshc2
+  -d DEL_INSTANCE, --delete-instance DEL_INSTANCE
+                        Will set the instance with given ID to be deleted within the given region.
+  --delete-key DEL_KEY  Will delete the given keypair within the given region.
+  --status              Prints the statsus of all EC2 instances within the given region.
 ```

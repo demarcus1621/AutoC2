@@ -193,6 +193,9 @@ def configure_instance(c2: str,
 def main():
     args = parser.parse_args()
 
+    if args.status:
+        get_instance_status(args.REGION)
+
     if args.createkey:
         generate_keypair(keyname=args.key_name, region=args.REGION)
 
@@ -204,11 +207,17 @@ def main():
         print("Allowing instance to finalize initialization.")
         time.sleep(10)
 
-    if args.config:
+    if args.config and args.c2 and args.ip:
         print("Configuring instance")
         configure_instance(c2=args.c2,
                            ext_ip=args.ip,
                            key_name=args.key_name)
+
+    if args.del_instance:
+        delete_instance(args.del_instance, args.REGION)
+
+    if args.del_key:
+        delete_keypair(args.REGION, args.del_key)
 
 
 if __name__ == '__main__':
@@ -239,15 +248,30 @@ if __name__ == '__main__':
                         help="Specify name for AWS security group: aws_c2")
     parser.add_argument('-b', '--build',
                         action='store_true',
-                        help="Tells the script to build the machine using"
+                        help="Tells the script to build the machine using "
                              "the other specified parameters")
     parser.add_argument('-c', '--config',
                         action='store_true',
-                        help="Configure AWS instance using"
+                        help="Configure AWS instance using "
                              "the provided ssh key SSH instance")
+    parser.add_argument('--instance-ip', dest='ip',
+                        help="External IP of the instance to be configured.")
     parser.add_argument('-f', '--framework',
                         dest='c2',
                         choices=["powershell-empire", "poshc2"],
-                        help="Specifies which C2 framework to install on"
+                        help="Specifies which C2 framework to install on "
                              "AWS instance: powershell-empire / poshc2")
+    parser.add_argument('-d', '--delete-instance',
+                        dest='del_instance',
+                        default=None,
+                        help="Will set the instance with given ID to be "
+                             "deleted within the given region.")
+    parser.add_argument('--delete-key', dest='del_key',
+                        default=None,
+                        help="Will delete the given keypair within the "
+                             "given region.")
+    parser.add_argument('--status', dest='status',
+                        action='store_true',
+                        help="Prints the statsus of all EC2 instances within "
+                             "the given region.")
     main()
