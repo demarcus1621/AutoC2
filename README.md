@@ -17,10 +17,10 @@ Ensure you have the proper packages and libraries.
 `pip install -r requirements.txt`
 
 Run the tool.
-`python create_ec2_instance.py -h`
+`python autoC2.py -h`
 ```
-usage: create_ec2_instance.py [-h] [-r REGION] [-i AMI] [-k KEY_NAME] [-n] [-g GROUP_NAME] [-b] [-c]
-                              [-f {powershell-empire,poshc2}]
+usage: autoC2.py [-h] [-r REGION] [-i AMI] [-k KEY_NAME] [-n] [-g GROUP_NAME] [-b] [-c] [--instance-ip IP] [-f {powershell-empire,poshc2}] [-d DEL_INSTANCE]
+                 [--delete-key DEL_KEY] [--status]
 
 Creates AWS EC2 instances for on-demand C2 testing.
 
